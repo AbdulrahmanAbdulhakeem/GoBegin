@@ -23,6 +23,11 @@ func getCreditScore(w http.ResponseWriter, r *http.Request){
   json.NewEncoder(w).Encode(creditRating)
 }
 
+func handleRequests(){
+  http.Handle("/creditscore" , http.HandlerFunc(getCreditScore))
+  log.Fatal(http.ListenAndServe(":8080" , nil))
+}
+
 func main(){
   //fmt.Println
 }
