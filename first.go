@@ -29,5 +29,5 @@ func handleRequests(){
 }
 
 func main(){
-  //fmt.Println
+  handleRequests()
 }
