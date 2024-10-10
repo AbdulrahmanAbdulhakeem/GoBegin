@@ -13,3 +13,7 @@ const creditScoreMax = 1000
 type credit_rating struct{
 	CreditRating int `json:"credit_rating"` 
 }
+
+func main(){
+  fmt.Println(rand.Intn(creditScoreMax - creditScoreMin) + creditScoreMin)
+}
