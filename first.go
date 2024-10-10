@@ -2,8 +2,8 @@ package main
 
 import (
   "fmt"
-  "net/http"
-  "log"
+  //"net/http"
+  //"log"
   "math/rand"
 )
 
@@ -14,6 +14,15 @@ type credit_rating struct{
 	CreditRating int `json:"credit_rating"` 
 }
 
+func getCreditScore(w http.ResponseWriter, r *http.Request){
+  var creditRating = credit_rating{
+    CreditRating:(rand.Intn(creditScoreMax - creditScoreMin) + creditScoreMin)
+  }
+
+  w.WriteHeader(http.StatusOK)
+  json.NewEncoder(w).Encode(creditRating)
+}
+
 func main(){
-  fmt.Println(rand.Intn(creditScoreMax - creditScoreMin) + creditScoreMin)
+  //fmt.Println
 }
